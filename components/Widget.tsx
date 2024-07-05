@@ -15,6 +15,7 @@ type Config = {
   subtitle?: string;
   primaryColor?: string;
   baseUrl?: string;
+  iframeUrlOverride?: string;
   greeting?: string;
   awayMessage?: string;
   customerId?: string;
@@ -57,6 +58,7 @@ const sanitizeConfigPayload = (payload: any): Config => {
     'subtitle',
     'primaryColor',
     'baseUrl',
+    'iframeUrlOverride',
     'greeting',
     'awayMessage',
     'companyName',
@@ -153,7 +155,8 @@ class Wrapper extends React.Component<Props, State> {
       emailInputPlaceholder = 'Enter your email',
       newMessagesNotificationText = 'View new messages',
       primaryColor = '1890ff',
-      baseUrl = 'https://app.papercups.io',
+      baseUrl = 'https://watercooler.outreachgrid.com',
+      iframeUrlOverride = 'https://chat-window-sand.vercel.app/',
       requireEmailUpfront = '0',
       showAgentAvailability = '0',
       disableAnalyticsTracking = '0',
@@ -191,6 +194,7 @@ class Wrapper extends React.Component<Props, State> {
           debug={!!Number(debug)}
           disableAnalyticsTracking={!!Number(disableAnalyticsTracking)}
           baseUrl={baseUrl}
+          iframeUrlOverride={iframeUrlOverride}
           customer={customer}
           version={version}
           ts={ts}
